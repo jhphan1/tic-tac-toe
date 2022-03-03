@@ -1,10 +1,19 @@
 // Gameboard module
 const gameboard = (() => {
     // Create 9 square array
-    let array = new Array(10);
+    let array = new Array(9);
+    // Randomly pre-fill array
+    array = [
+            "X", "O", " ",
+            "O", " ", "X",
+            "O", "X", " "
+    ]
     // Link each array element to DOM square with textContent
     const squares = document.querySelectorAll(".container div");
-    squares.forEach(square => square.textContent = "X");
+
+    for (let i = 0; i < array.length; i++) {
+        squares[i].textContent = array[i];
+    };
 })();
 
 
