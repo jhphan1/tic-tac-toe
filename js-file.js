@@ -52,7 +52,6 @@ const gameFlow = (() => {
     };
 
     function checkGameOver() {
-        
         if (// Horizontal win
             gameboard.array[0] === currentTurn.marker && gameboard.array[1] === currentTurn.marker && gameboard.array[2] === currentTurn.marker ||
             gameboard.array[3] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[5] === currentTurn.marker ||
@@ -66,7 +65,17 @@ const gameFlow = (() => {
             gameboard.array[2] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[6] === currentTurn.marker) {
             console.log(`Winner is ${currentTurn.name}`);
         }
-        // Tie
+        // Check for tie
+        let isTie = true;
+        for (let i = 0; i < gameboard.array.length; i++) {
+            if (gameboard.array[i] === undefined) {
+                isTie = false;
+                break;
+            }
+        }
+        console.log(isTie);
+        // Stop game
+        // Display winner
     }
 })();
 
