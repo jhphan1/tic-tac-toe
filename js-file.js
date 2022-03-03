@@ -52,15 +52,21 @@ const gameFlow = (() => {
     };
 
     function checkGameOver() {
-        // Horizontal win
-        if (gameboard.array[0] === currentTurn.marker && gameboard.array[1] === currentTurn.marker && gameboard.array[2] === currentTurn.marker ||
+        
+        if (// Horizontal win
+            gameboard.array[0] === currentTurn.marker && gameboard.array[1] === currentTurn.marker && gameboard.array[2] === currentTurn.marker ||
             gameboard.array[3] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[5] === currentTurn.marker ||
-            gameboard.array[6] === currentTurn.marker && gameboard.array[7] === currentTurn.marker && gameboard.array[8] === currentTurn.marker) {
+            gameboard.array[6] === currentTurn.marker && gameboard.array[7] === currentTurn.marker && gameboard.array[8] === currentTurn.marker ||
+            // Vertical win
+            gameboard.array[0] === currentTurn.marker && gameboard.array[3] === currentTurn.marker && gameboard.array[6] === currentTurn.marker ||
+            gameboard.array[1] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[7] === currentTurn.marker ||
+            gameboard.array[2] === currentTurn.marker && gameboard.array[5] === currentTurn.marker && gameboard.array[8] === currentTurn.marker ||
+            // Diagonal win
+            gameboard.array[0] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[8] === currentTurn.marker ||
+            gameboard.array[2] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[6] === currentTurn.marker) {
             console.log(`Winner is ${currentTurn.name}`);
         }
-        // Vertical win
-        // Left-to-Right Diagonal win
-        // Right-to-Left Diagonal win
+        // Tie
     }
 })();
 
