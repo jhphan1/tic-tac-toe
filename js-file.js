@@ -32,6 +32,9 @@ const playerTwo = makePlayer("Jason", "O");
 const gameFlow = (() => {
     let currentTurn = playerOne;
 
+    const overlay = document.querySelector(".overlay");
+    const gameOver = document.querySelector(".game-over");
+
     const squares = document.querySelectorAll(".container div");
     squares.forEach(square => square.addEventListener("click", addMarker));
 
@@ -63,7 +66,7 @@ const gameFlow = (() => {
             // Diagonal win
             gameboard.array[0] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[8] === currentTurn.marker ||
             gameboard.array[2] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[6] === currentTurn.marker) {
-            console.log(`Winner is ${currentTurn.name}`);
+            stopGame(currentTurn.name);
         }
         // Check for tie
         let isTie = true;
@@ -73,10 +76,22 @@ const gameFlow = (() => {
                 break;
             }
         }
-        console.log(isTie);
-        // Stop game
-        // Display winner
+
+        if (isTie) { stopGame("tie") };
     }
+
+    // Stop game
+    function stopGame(result) {
+        overlay.style.display = "block";
+        gameOver.style.display = "block";
+
+        if (result === "tie") {
+            gameOver.textContent = "It's a tie!"
+        } else {
+            gameOver.textContent = `${result} is the winner! Congrats!`;
+        }
+    }
+
 })();
 
 

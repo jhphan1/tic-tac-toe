@@ -41,6 +41,7 @@ body {
     opacity: 0.5;
     z-index: 100;
     background-color: white;
+    display: none;
 }
 
 .game-over {
@@ -61,3 +62,4 @@ body {
     margin-left: -20vh;
     margin-top: -15vh;
     z-index: 200;
+    display: none;
