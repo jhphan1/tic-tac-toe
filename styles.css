@@ -25,4 +25,9 @@ body {
 
 .container div {
     background-color: whitesmoke;
+    font-size: 12vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
