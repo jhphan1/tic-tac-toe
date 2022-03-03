@@ -1,10 +1,14 @@
 // Gameboard module
-//     Create array[9]
-//     Link each array element to DOM square with textContent
+const gameboard = (() => {
+    // Create 9 square array
+    let array = new Array(10);
+    // Link each array element to DOM square with textContent
+    const squares = document.querySelectorAll(".container div");
+    squares.forEach(square => square.textContent = "X");
+})();
+
 
 // Player factory
-//     name
-//     marker
 function makePlayer (name, marker) {
     return {name, marker};
 };
