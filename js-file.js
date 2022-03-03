@@ -2,12 +2,7 @@
 const gameboard = (() => {
     // Create 9 square array
     let array = new Array(9);
-    // Randomly pre-fill array
-    array = [
-            "X", "O", " ",
-            "O", " ", "X",
-            "O", "X", " "
-    ]
+    
     // Link each array element to DOM square with textContent
     const squares = document.querySelectorAll(".container div");
 
@@ -35,7 +30,6 @@ const playerTwo = makePlayer("Jason", "O");
 
 // Game Flow module
 const gameFlow = (() => {
-//     Players alternate turns
     let currentTurn = playerOne;
 
     const squares = document.querySelectorAll(".container div");
@@ -43,16 +37,31 @@ const gameFlow = (() => {
 
     function addMarker() {
         // Add current player's marker to empty square
-        if (gameboard.array[this.id] === " ") {
+        if (gameboard.array[this.id] === undefined) {
             gameboard.array[this.id] = currentTurn.marker;
             gameboard.refresh();
 
-            // Next player's turn
+            checkGameOver();
+
+            // Players alternate turns
             currentTurn = (currentTurn === playerOne) ? playerTwo : playerOne;
         } else {
+            // Do nothing if square is already filled
             return;
         }
     };
+
+    function checkGameOver() {
+        // Horizontal win
+        if (gameboard.array[0] === currentTurn.marker && gameboard.array[1] === currentTurn.marker && gameboard.array[2] === currentTurn.marker ||
+            gameboard.array[3] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[5] === currentTurn.marker ||
+            gameboard.array[6] === currentTurn.marker && gameboard.array[7] === currentTurn.marker && gameboard.array[8] === currentTurn.marker) {
+            console.log(`Winner is ${currentTurn.name}`);
+        }
+        // Vertical win
+        // Left-to-Right Diagonal win
+        // Right-to-Left Diagonal win
+    }
 })();
 
 
