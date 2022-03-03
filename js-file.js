@@ -42,20 +42,17 @@ const gameFlow = (() => {
     squares.forEach(square => square.addEventListener("click", addMarker));
 
     function addMarker() {
-        // Add current player's marker to square
-        gameboard.array[this.id] = currentTurn.marker;
-        gameboard.refresh();
+        // Add current player's marker to empty square
+        if (gameboard.array[this.id] === " ") {
+            gameboard.array[this.id] = currentTurn.marker;
+            gameboard.refresh();
 
-        // Next player's turn
-        currentTurn = (currentTurn === playerOne) ? playerTwo : playerOne;
+            // Next player's turn
+            currentTurn = (currentTurn === playerOne) ? playerTwo : playerOne;
+        } else {
+            return;
+        }
     };
-
-//     Function: add mark to square
-//     Player clicks on square
-//     Player's mark is added to array
-//     DOM is updated with mark
-//     Error: Can't add to pre-filled square
-
 })();
 
 
