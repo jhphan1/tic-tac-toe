@@ -1,43 +1,23 @@
-const container = document.querySelector("#container");
+// Gameboard module
+//     Create array[9]
+//     Link each array element to DOM square with textContent
 
-// Create <p> element with red text
-const p = document.createElement("p");
-p.classList.add("red");
-p.textContent = "Hey I'm red!";
-p.style.cssText = "color: red";
+// Player factory
+//     name
+//     marker
+function makePlayer (name, marker) {
+    return {name, marker};
+};
 
-container.appendChild(p);
+// Game Flow module
+//     Players alternate turns
 
-// Create <h3> with blue text
-const blueHeading = document.createElement("h3");
-blueHeading.classList.add("blue");
-blueHeading.textContent = "I'm a blue h3!";
-blueHeading.style.cssText = "color: blue";
+// Display Controller module
+//     displayWinner()
 
-container.appendChild(blueHeading);
 
-// Create <div> with black border and pink background
-const pinkDiv = document.createElement("div");
-pinkDiv.classList.toggle("pink");
-pinkDiv.style.cssText = "background-color: pink; border: solid black";
-
-container.appendChild(pinkDiv);
-
-// Add <h1> and <p> to div
-const divHead = document.createElement("h1");
-divHead.textContent = "I'm in a div";
-pinkDiv.appendChild(divHead);
-
-const divPara = document.createElement("p");
-divPara.textContent = "ME TOO!";
-pinkDiv.appendChild(divPara);
-
-// Add button on-click
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        console.log(button.id);
-    });
-});
-
+// Function: add mark to square
+//     Player clicks on square
+//     Player's mark is added to array
+//     DOM is updated with mark
+//     Error: Can't add to pre-filled square
