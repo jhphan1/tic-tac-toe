@@ -66,9 +66,9 @@ const gameFlow = (() => {
             // Diagonal win
             gameboard.array[0] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[8] === currentTurn.marker ||
             gameboard.array[2] === currentTurn.marker && gameboard.array[4] === currentTurn.marker && gameboard.array[6] === currentTurn.marker) {
-            stopGame(currentTurn.name);
+            return stopGame(currentTurn.name);
         }
-        // Check for tie
+        // Tie if gameboard is full
         let isTie = true;
         for (let i = 0; i < gameboard.array.length; i++) {
             if (gameboard.array[i] === undefined) {
@@ -77,7 +77,7 @@ const gameFlow = (() => {
             }
         }
 
-        if (isTie) { stopGame("tie") };
+        if (isTie) { return stopGame("tie") };
     }
 
     // Stop game
@@ -97,4 +97,6 @@ const gameFlow = (() => {
 
 
 // Display Controller module
-//     displayWinner()
+    // reset button
+    // player can choose name/marker
+    // reset button on game-over popup
