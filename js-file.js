@@ -92,11 +92,29 @@ const gameFlow = (() => {
         }
     }
 
+    return {currentTurn};
+
 })();
 
 
-
 // Display Controller module
+let displayController = (() => {
+    const resetGame = () => {
+        gameboard.array.forEach((element, index) => {
+            gameboard.array[index] = undefined;
+        });
+
+        gameboard.refresh();
+        gameFlow.currentTurn = playerOne;
+    }
+
+    const reset = document.querySelector(".reset");
+    reset.addEventListener("click", resetGame)
+})();
     // reset button
     // player can choose name/marker
     // reset button on game-over popup
+
+
+// BUGS TO FIX:
+//     resetGame() should change to playerOne's turn
