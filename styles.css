@@ -10,7 +10,8 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: rgb(51, 129, 77);
+    background: url(img/paper.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
 .header {
@@ -52,12 +53,14 @@ body {
     width: 80px;
     padding: 8px 0px;
     border: 0;
+    border-bottom: 5px solid rgb(119, 46, 64);
     border-radius: 8px;
+    box-shadow: 2px 4px 4px rgb(172, 172, 172);
 }
 
 .reset:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 0px 5px grey;
+    transform: scale(1.04);
+    box-shadow: 1px 2px 3px rgb(172, 172, 172);
 }
 
 .overlay {
