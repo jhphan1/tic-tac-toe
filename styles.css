@@ -13,6 +13,12 @@ body {
     background-color: rgb(51, 129, 77);
 }
 
+.header {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2vh;
+}
+
 .container {
     height: 60vh;
     width: 60vh;
@@ -21,6 +27,8 @@ body {
     gap: 5px;
     padding: 5px;
     grid-template-columns: repeat(3, 1fr);
+    border: 5px solid black;
+    border-radius: 8px;
 }
 
 .container div {
@@ -30,6 +38,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container div:after {
+    content: '\200b'; /* add a zero width space character inside a pseudo element so that empty div takes up space in grid */
 }
 
 .overlay {
