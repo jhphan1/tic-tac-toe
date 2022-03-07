@@ -5,13 +5,18 @@
 
 body {
     margin: 0;
+    background: url(img/paper.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(3, 33.333%);
+}
+
+.main-content {
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: url(img/paper.jpg) no-repeat center center fixed;
-    background-size: cover;
 }
 
 .header {
@@ -20,7 +25,7 @@ body {
     color: rgb(54, 54, 54);
 }
 
-.container {
+.gameboard {
     height: 60vh;
     width: 60vh;
     display: grid;
@@ -32,7 +37,7 @@ body {
     box-shadow: 0px 0px 20px 20px rgba(249,250,252,255);
 }
 
-.container div {
+.gameboard div {
     background-color: rgba(249,250,252,255);
     font-size: 12vh;
     font-weight: bold;
@@ -41,7 +46,7 @@ body {
     align-items: center;
 }
 
-.container div:after {
+.gameboard div:after {
     content: '\200b'; /* add a zero width space character inside a pseudo element so that empty div takes up space in grid */
 }
 
