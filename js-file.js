@@ -32,6 +32,9 @@ const playerTwo = makePlayer("Jason", "O");
 const gameFlow = (() => {
     let currentTurn = playerOne;
 
+    // Allow other modules to reset currentTurn
+    const resetTurn = () => { currentTurn = playerOne };
+
     const overlay = document.querySelector(".overlay");
     const gameOver = document.querySelector(".game-over");
 
@@ -92,7 +95,7 @@ const gameFlow = (() => {
         }
     }
 
-    return {currentTurn};
+    return { resetTurn };
 
 })();
 
@@ -105,7 +108,7 @@ let displayController = (() => {
         });
 
         gameboard.refresh();
-        gameFlow.currentTurn = playerOne;
+        gameFlow.resetTurn();
     }
 
     const reset = document.querySelector(".reset");
@@ -117,4 +120,3 @@ let displayController = (() => {
 
 
 // BUGS TO FIX:
-//     resetGame() should change to playerOne's turn
