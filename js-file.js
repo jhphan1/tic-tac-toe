@@ -4,7 +4,7 @@ const gameboard = (() => {
     let array = new Array(9);
     
     // Link each array element to DOM square with textContent
-    const squares = document.querySelectorAll(".container div");
+    const squares = document.querySelectorAll(".gameboard div");
 
     const refresh = () => {
         for (let i = 0; i < array.length; i++) {
@@ -35,7 +35,7 @@ const gameFlow = (() => {
     const overlay = document.querySelector(".overlay");
     const gameOver = document.querySelector(".game-over");
 
-    const squares = document.querySelectorAll(".container div");
+    const squares = document.querySelectorAll(".gameboard div");
     squares.forEach(square => square.addEventListener("click", addMarker));
 
     function addMarker() {

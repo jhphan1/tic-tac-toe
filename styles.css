@@ -68,6 +68,88 @@ body {
     box-shadow: 1px 2px 3px rgb(172, 172, 172);
 }
 
+.sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.player-module {
+    height: 250px;
+    width: 250px;
+    background-color:rgb(17, 94, 117);
+    border: 5px double black;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 16px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.player-info {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.P1-name,
+.P2-name {
+    color: white;
+    text-transform: uppercase;
+}
+
+.P1-marker,
+.P2-marker {
+    color: gold;
+}
+
+.change-players {
+    font-weight: bold;
+}
+
+.player-input {
+    font-size: 0.8rem;
+}
+
+.player-input input {
+    width: 125px;
+    margin: 5px 0px;
+    border-radius: 3px;
+    border: 0;
+    background-color: whitesmoke;
+}
+
+.player-input select {
+    border-radius: 3px;
+    border: 0;
+    background-color: whitesmoke;
+}
+
+.play {
+    background-color: rgb(221, 92, 125);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 60px;
+    padding: 4px 0px;
+    border: 0;
+    border-bottom: 5px solid rgb(119, 46, 64);
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.play:hover {
+    transform: scale(1.04);
+}
+
 .overlay {
     position: absolute;
     top: 0;

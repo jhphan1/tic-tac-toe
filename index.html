@@ -10,7 +10,32 @@
 </head>
 <body>
     <div class="sidebar">
-        <div class="player-input">Player One</div>
+        <div class="player-module">
+            <ul class="player-info">
+                <li>P1: <span class="P1-name">Anna, </span><span class="P1-marker">X</span></li>
+                <li>P2: <span class="P2-name">Jason, </span><span class="P2-marker">O</span></li>
+            </ul>
+            <div class="change-players">Change players:</div>
+            <ul class="player-input">
+                <li>
+                    <label for="P1-name-input">Player One: </label>
+                    <input type="text" id="P1-name-input" maxlength="12" placeholder="Anna">
+                </li>
+                <li>
+                    <label for="P1-marker-input">Player One Marker: </label>
+                    <select id="P1-name-input">
+                        <option value="X" selected>X</option>
+                        <option value="O">O</option>
+                    </select>
+                </li>
+                <br>
+                <li>
+                    <label for="P2-name-input">Player Two: </label>
+                    <input type="text" id="P2-name-input" maxlength="12" placeholder="Jason">
+                </li>
+            </ul>
+            <button class="play">Play!</button>
+        </div>
     </div>
     <div class="main-content">
         <div class="header">Tic-Tac-Toe</div>
