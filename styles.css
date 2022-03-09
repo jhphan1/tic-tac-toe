@@ -102,8 +102,15 @@ li {
 
 .P1-name,
 .P2-name {
-    color: white;
     text-transform: uppercase;
+}
+
+.P1-name {
+    color: orange;
+}
+
+.P2-name {
+    color: white;
 }
 
 .P1-marker,

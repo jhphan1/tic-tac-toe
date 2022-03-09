@@ -37,6 +37,8 @@ const displayController = (() => {
             gameboard.array[index] = undefined;
         });
 
+        alternateColor(playerOne);
+
         gameboard.refresh();
         gameFlow.resetTurn();
     }
@@ -68,17 +70,19 @@ const displayController = (() => {
         resetGame();
     }
 
-    // Display glow
-    function glowOn(player) {
-        if (player === "one") {
+    // Display current turn with different color display
+    function alternateColor(player) {
+        if (player === playerOne) {
             P1name.style.color = "orange";
-        }
-        if (player === "two") {
-            P1name.style.color = "orange";
+            P2name.style.color = "white";
+        } else if (player === playerTwo) {
+            P2name.style.color = "orange";
+            P1name.style.color = "white";
         }
     }
+    
 
-    return { glowOn };
+    return { alternateColor };
 })();
 
 
@@ -105,6 +109,7 @@ const gameFlow = (() => {
 
             // Players alternate turns
             currentTurn = (currentTurn === playerOne) ? playerTwo : playerOne;
+            displayController.alternateColor(currentTurn);
         } else {
             // Do nothing if square is already filled
             return;
