@@ -23,9 +23,63 @@ function makePlayer (name, marker) {
     return {name, marker};
 };
 
+
 // Pre-fill some players 
-const playerOne = makePlayer("Anna", "X");
-const playerTwo = makePlayer("Jason", "O");
+let playerOne = makePlayer("Player One", "X");
+let playerTwo = makePlayer("Player Two", "O");
+
+
+// Display Controller module
+const displayController = (() => {
+    // Reset button
+    const resetGame = () => {
+        gameboard.array.forEach((element, index) => {
+            gameboard.array[index] = undefined;
+        });
+
+        gameboard.refresh();
+        gameFlow.resetTurn();
+    }
+
+    const reset = document.querySelector(".reset");
+    reset.addEventListener("click", resetGame)
+
+    // Play button
+    const P1name = document.querySelector(".P1-name");
+    const P1marker = document.querySelector(".P1-marker");
+    const P2name = document.querySelector(".P2-name");
+    const P2marker = document.querySelector(".P2-marker");
+    const P1nameInput = document.querySelector("#P1-name-input");
+    const P1markerInput = document.querySelector("#P1-marker-input");
+    const P2nameInput = document.querySelector("#P2-name-input");
+    const play = document.querySelector(".play");
+
+    play.addEventListener("click", setPlayers);
+
+    function setPlayers() {
+        if (!P1nameInput.value || !P2nameInput.value) { return alert("Enter a name!")};
+        if (P1nameInput.value === P2nameInput.value) { return alert("Names must be different!")};
+        playerOne = makePlayer(P1nameInput.value, P1markerInput.value);
+        playerTwo = makePlayer(P2nameInput.value, (P1markerInput.value === "X") ? "O" : "X");
+        P1name.textContent = playerOne.name;
+        P1marker.textContent = playerOne.marker;
+        P2name.textContent = playerTwo.name;
+        P2marker.textContent = playerTwo.marker;
+        resetGame();
+    }
+
+    // Display glow
+    function glowOn(player) {
+        if (player === "one") {
+            P1name.style.color = "orange";
+        }
+        if (player === "two") {
+            P1name.style.color = "orange";
+        }
+    }
+
+    return { glowOn };
+})();
 
 
 // Game Flow module
@@ -100,20 +154,6 @@ const gameFlow = (() => {
 })();
 
 
-// Display Controller module
-let displayController = (() => {
-    const resetGame = () => {
-        gameboard.array.forEach((element, index) => {
-            gameboard.array[index] = undefined;
-        });
-
-        gameboard.refresh();
-        gameFlow.resetTurn();
-    }
-
-    const reset = document.querySelector(".reset");
-    reset.addEventListener("click", resetGame)
-})();
     // reset button
     // player can choose name/marker
     // reset button on game-over popup
