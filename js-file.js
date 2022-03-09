@@ -81,7 +81,6 @@ const displayController = (() => {
         }
     }
     
-
     return { alternateColor };
 })();
 
@@ -155,13 +154,4 @@ const gameFlow = (() => {
     }
 
     return { resetTurn };
-
 })();
-
-
-    // reset button
-    // player can choose name/marker
-    // reset button on game-over popup
-
-
-// BUGS TO FIX:

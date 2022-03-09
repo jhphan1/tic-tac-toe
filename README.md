@@ -1,3 +1,6 @@
 # tic-tac-toe
+The focus of this project was to use factory functions and revealing modules to create a game of tic-tac-toe. Both of these concepts were initially confusing and difficult to grasp for me because they were more abstract than previous basic JS concepts. It definitely began to click once I implemented them into designing this game. I still had some difficulty with managing scope since I was so used to having all my important variables just in the global scope. I'm satisfied with the end result because I was able to compartmentalize almost every variable/function into its own factory function or module.
 
-Photo by Lum3n from Pexels
+There was a bonus challenge to create an AI for the player to play against. After doing some brief research into the topic of the minimax algorithm, I decided that I did not want to dive down this rabbithole right now so that I can continue learning more JS basics. Perhaps it is something I can return to in the future when I am more advanced.
+
+Background Image by Lum3n from Pexels
